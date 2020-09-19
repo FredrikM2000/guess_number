@@ -2,24 +2,25 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <algorithm>
 
 int main() {
 	bool repeat_game = true;
 	std::vector <int> highscores;
 	int i = 0;
-do {
-	bool right_guess = false;
-	bool valid_option = true;
-	char repeat;
-	int guess;
-	int guess_counter = 0;
+	do {
+		bool right_guess = false;
+		bool valid_option = true;
+		char repeat;
+		int guess;
+		int guess_counter = 0;
 
-	std::srand(static_cast<unsigned int>(std::time(nullptr)));
-	int secret_number = rand()%10 + 1;
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+		int secret_number = rand() % 10 + 1;
 
-	std::cout << secret_number;
-	
-	
+		std::cout << secret_number;
+
+
 		std::cout << "Guess a number between 1 and 10: ";
 		do {
 			std::cin >> guess;
@@ -63,19 +64,14 @@ do {
 			}
 		} while (valid_option == false);
 	} while (repeat_game == true);
-	//std::cout << highscores[0] << highscores[1];
 
+	std::sort(highscores.begin(), highscores.end());
 
-
-	for (int u = 0;u <= highscores.size()-1 || u <= 5;u++) {
-		std::cout << "|" << u+ 1 << "|  " << highscores[u] << "  |\n";
+	std::cout << highscores.size();
+	for (int u = 0;u <= highscores.size() || u <= 4;u++) {
+		std::cout << "|" << u + 1 << "|  " << highscores[u] << "  |\n";
+	
 	}
-
-
-	//std::cout << "|1|  " << highscores[0] << "  |\n";
-	//std::cout << "|2|  " << highscores[1] << "  |\n";
-	//std::cout << "|3|  " << highscores[2] << "  |\n";
-	//std::cout << "|4|  " << highscores[3] << "  |\n";
-	//std::cout << "|5|  " << highscores[4] << "  |\n";
+	std::cout << "bruh";
 
 }
