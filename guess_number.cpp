@@ -68,10 +68,10 @@ int main() {
 	std::sort(highscores.begin(), highscores.end());
 
 	std::cout << highscores.size();
-	for (int u = 0;u <= highscores.size() || u <= 4;u++) {
-		std::cout << "|" << u + 1 << "|  " << highscores[u] << "  |\n";
-	
-	}
-	std::cout << "bruh";
 
+	for (int u = 0;u <= highscores.size() || u <= 4;u++) {
+
+		std::cout << "|" << (u + 1) << "|  " << highscores[0] << "  |\n";
+
+	}
 }
