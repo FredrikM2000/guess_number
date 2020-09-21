@@ -31,6 +31,7 @@ int main() {
 		case(3):
 			difficulty = 30;
 			valid_difficulty = true;
+			break;
 		default:
 			valid_difficulty = false;
 			std::cout << "\nNot valid, try again\n\n";
@@ -45,7 +46,7 @@ int main() {
 		int guess;
 		int guess_counter = 0;
 
-		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));// When you set the limit of the random number to an integer that does not change you get the same sequence of numbers, so to have a different limit every time, I set the limit to the curent time
 		int secret_number = rand() % difficulty + 1;
 
 		std::cout << "Guess a number between 1 and " <<  difficulty << ": ";
@@ -56,7 +57,7 @@ int main() {
 			if (guess == secret_number) {
 				right_guess = true;
 			} else {
-				if (guess <= difficulty && guess >= 1) {
+				if (guess <= difficulty && guess >= 1) {//Makes sure the guess is valid
 					if (guess < secret_number) {
 						std::cout << "Try going higher: ";
 						right_guess = false;
@@ -79,10 +80,10 @@ int main() {
 		if (round >= 1 && guess_counter < highscores.at(round-1)) {
 			std::cout << "Well done, you beat your previous score\n";
 		}
-		std::sort(highscores.begin(), highscores.end());
+		std::sort(highscores.begin(), highscores.end());//sorts the vector from highest to lowest
 		std::cout << " _________\n";
 		for (int u = 0;u <= round;u++) {
-			std::cout << " |" << (u + 1) << ".|  " << highscores.at(u) << "  |\n";
+			std::cout << " |" << (u + 1) << ".|  " << highscores.at(u) << "  |\n";//prints hte higscores
 	}
 		std::cout << " _________\n";
 		do {
@@ -99,7 +100,7 @@ int main() {
 				std::cout << "\nWell played!\n";
 			}
 			else {
-				std::cout << "Invaldin option, try again";
+				std::cout << "Invaldin option, try again\n";
 				valid_option = false;
 			}
 		} while (valid_option == false);
