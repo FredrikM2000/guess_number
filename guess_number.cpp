@@ -42,7 +42,7 @@ int main() {
 	do {
 		bool right_guess = false;
 		bool valid_option = true;
-		char repeat;
+		char repeat_input;
 		int guess;
 		int guess_counter = 0;
 
@@ -83,18 +83,18 @@ int main() {
 		std::sort(highscores.begin(), highscores.end());//sorts the vector from highest to lowest
 		std::cout << " _________\n";
 		for (int u = 0;u <= round;u++) {
-			std::cout << " |" << (u + 1) << ".|  " << highscores.at(u) << "  |\n";//prints hte higscores
+			std::cout << " |" << (u + 1) << ".|  " << highscores.at(u) << "  |\n";//prints the higscores
 	}
 		std::cout << " _________\n";
 		do {
 			std::cout << "Would you like to play again?(y/n) ";
-			std::cin >> repeat;
-			if (repeat == 'Y' || repeat == 'y') {
+			std::cin >> repeat_input;
+			if (repeat_input == 'Y' || repeat_input == 'y') {
 				repeat_game = true;
 				valid_option = true;
 				round++;
 			}
-			else if (repeat == 'N' || repeat == 'n') {
+			else if (repeat_input == 'N' || repeat_input == 'n') {
 				repeat_game = false;
 				valid_option = true;
 				std::cout << "\nWell played!\n";
